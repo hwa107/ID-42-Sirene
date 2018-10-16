@@ -140,6 +140,9 @@ void stateGamePause()
 {
   sprites.drawSelfMasked(47, 24, textPause, 0);
   if (arduboy.justPressed(A_BUTTON)) gameState = STATE_GAME_PLAYING;
+  if (arduboy.justPressed(B_BUTTON)) autoFire = !autoFire;
+  sprites.drawSelfMasked(49, 40, trident, 0);
+  sprites.drawSelfMasked(65, 40, menuAutoFire, autoFire);
 };
 
 void gameOverShowHighScore()

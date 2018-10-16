@@ -29,6 +29,8 @@
 #define STAGE_TO_START_WITH          1
 #define PLAYER_CAN_DIE               1
 
+#define START_AUTO_FIRE              0
+
 #define SCORE_SMALL_FONT             0
 #define SCORE_BIG_FONT               1
 
@@ -42,6 +44,7 @@ ArduboyTones sound(arduboy.audio.enabled);
 
 byte gameState = STATE_MENU_INTRO;    // start the game with the TEAM a.r.g. logo
 byte menuSelection = STATE_MENU_PLAY; // PLAY menu item is pre-selected
+byte autoFire = START_AUTO_FIRE;      // default auto fire is off
 byte globalCounter = 0;
 byte stage = STAGE_TO_START_WITH -1;
 unsigned long scorePlayer; 

@@ -29,7 +29,7 @@ void checkInputs()
     gameState = STATE_GAME_PAUSE;
   }
 
-  if (arduboy.justPressed(B_BUTTON) && (coolDown[mermaid.weaponType] == coolDownMax[mermaid.weaponType]))
+  if ((arduboy.justPressed(B_BUTTON) || autoFire) && (coolDown[mermaid.weaponType] == coolDownMax[mermaid.weaponType]))
   {
 
     if (mermaid.weaponType == WEAPON_TYPE_TRIDENT)
@@ -48,7 +48,7 @@ void checkInputs()
       }
     }
   }
-  if (arduboy.pressed(B_BUTTON))
+  if (arduboy.pressed(B_BUTTON) || autoFire)
   {
     if ((mermaid.weaponType == WEAPON_TYPE_BUBBLES) && (coolDown[WEAPON_TYPE_BUBBLES] == coolDownMax[WEAPON_TYPE_BUBBLES]))
     {
@@ -62,7 +62,7 @@ void checkInputs()
       if (mermaid.chargeBarFrame > 4) mermaid.chargeBarFrame = 4;
     }
   }
-  if (arduboy.notPressed(B_BUTTON) && (mermaid.weaponType == WEAPON_TYPE_MAGIC) && (mermaid.magicCharging == true))
+  if (arduboy.notPressed(B_BUTTON || autoFire) && (mermaid.weaponType == WEAPON_TYPE_MAGIC) && (mermaid.magicCharging == true))
   {
     mermaid.magicCharging = false;
     coolDown[mermaid.weaponType]--;
